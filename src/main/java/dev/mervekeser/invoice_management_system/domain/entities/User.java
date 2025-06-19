@@ -27,7 +27,7 @@ public class User extends BaseEntity{
     private UserRole userRole;
 
     @OneToMany(mappedBy = "user")
-    private List<User> users = new ArrayList<>();
+    private List<Company> companies = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<Address> addresses = new ArrayList<>();

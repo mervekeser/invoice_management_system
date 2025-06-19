@@ -17,6 +17,8 @@ public record UpdateAddressDto(
         @NotBlank
         @NotNull
         @Size(max = 25 )
-        String district
+        String district,
+        @NotNull @Positive
+        Long companyId
 ) {
 }

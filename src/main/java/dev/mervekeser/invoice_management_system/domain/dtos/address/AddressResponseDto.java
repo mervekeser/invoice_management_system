@@ -6,8 +6,6 @@ import dev.mervekeser.invoice_management_system.domain.dtos.user.UserResponseDto
 public record AddressResponseDto(
         String content,
         String city,
-        String district,
-        CompanyResponseDto companyResponseDto,
-        UserResponseDto userResponseDto
+        String district
 ) {
 }

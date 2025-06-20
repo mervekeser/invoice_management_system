@@ -11,8 +11,6 @@ public record CompanyResponseDto(
         String phone,
         String email,
         String taxNumber,
-        List<InvoiceResponseDto> invoiceResponseDtos,
-        UserResponseDto userResponseDto,
         List<AddressResponseDto> addressResponseDtos
 ) {
 }

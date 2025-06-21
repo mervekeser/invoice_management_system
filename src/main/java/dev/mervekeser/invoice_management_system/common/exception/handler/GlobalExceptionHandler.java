@@ -1,6 +1,7 @@
 package dev.mervekeser.invoice_management_system.common.exception.handler;
 
 import dev.mervekeser.invoice_management_system.common.exception.AlreadyExistsException;
+import dev.mervekeser.invoice_management_system.common.exception.DataNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -19,6 +20,11 @@ public class GlobalExceptionHandler {
     private List<String> addMapValue(List<String> list, String newValue){
         list.add(newValue);
         return list;
+    }
+
+    @ExceptionHandler(value = DataNotFoundException.class)
+    public ResponseEntity<ApiError> handleDataNotFoundException(DataNotFoundException dataNotFoundException, WebRequest webRequest){
+        return ResponseEntity.badRequest().body(createApiError(dataNotFoundException.getMessage(), webRequest));
     }
 
     @ExceptionHandler(value = AlreadyExistsException.class)

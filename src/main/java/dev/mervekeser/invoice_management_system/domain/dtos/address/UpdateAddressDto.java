@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public record UpdateAddressDto(
-        @NotNull(message = "{NotNull.common}")
         @Positive(message = "{Positive.common}")
         Long id,
         @NotBlank(message = "{NotBlank.common}")
@@ -18,10 +17,8 @@ public record UpdateAddressDto(
         @NotBlank(message = "{NotBlank.common}")
         @Size(max = 25, message = "{Size.common}")
         String district,
-        @NotNull(message = "{NotNull.common}")
         @Positive(message = "{Positive.common}")
         Long companyId,
-        @NotNull(message = "{NotNull.common}")
         @Positive(message = "{Positive.common}")
         Long userId
 ) {

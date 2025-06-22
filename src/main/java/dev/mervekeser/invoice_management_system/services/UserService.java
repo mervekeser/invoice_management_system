@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
     UserResponseDto createUser(CreateUserDto createUserDto);
-    UserResponseDto updateUser(UpdateUserDto updateUserDto);
+    UserResponseDto updateUser(UpdateUserDto updateUserDto, Long id);
     UserResponseDto getUserById(Long id);
     List<UserResponseDto> getAllUsers();
     UserResponseDto deleteUserById(Long id);

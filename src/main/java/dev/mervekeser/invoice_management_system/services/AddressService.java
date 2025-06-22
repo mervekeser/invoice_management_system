@@ -12,5 +12,5 @@ public interface AddressService {
     AddressResponseDto updateAddress(UpdateAddressDto updateAddressDto);
     AddressResponseDto getAddressById(Long id);
     List<AddressResponseDto> getAllAddress();
-    AddressResponseDto deleteAddress(Long id);
+    AddressResponseDto deleteAddressById(Long id);
 }

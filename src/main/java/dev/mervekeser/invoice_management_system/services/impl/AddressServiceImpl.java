@@ -29,9 +29,9 @@ public class AddressServiceImpl implements AddressService {
 
         Address address1 = addressRepository.findByContent(createAddressDto.content());
 
-        if(address1.getContent() != null){
+        /*if(address1.getContent() != null){
             throw new AlreadyExistsException(new ErrorMessage(MessageType.ADDRESS_ALREADY_EXISTS, createAddressDto.content()));
-        }
+        }*/
 
         if(createAddressDto.companyId() == null){
             throw new DataNotFoundException(new ErrorMessage(MessageType.COMPANY_NOT_FOUND, createAddressDto.companyId().toString()));
@@ -73,7 +73,7 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public AddressResponseDto deleteAddress(Long id) {
+    public AddressResponseDto deleteAddressById(Long id) {
         Address address = addressRepository.findById(id)
                 .orElseThrow(()-> new DataNotFoundException(new ErrorMessage(MessageType.ADDRESS_NOT_FOUND, id.toString())));
         addressRepository.delete(address);

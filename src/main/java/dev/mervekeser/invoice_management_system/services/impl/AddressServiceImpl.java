@@ -27,11 +27,20 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressResponseDto createAddress(CreateAddressDto createAddressDto) {
 
-        Address address = addressMapper.toEntity(createAddressDto);
+        Address address1 = addressRepository.findByContent(createAddressDto.content());
 
-        if(createAddressDto.content() == address.getContent()){
+        if(address1.getContent() != null){
             throw new AlreadyExistsException(new ErrorMessage(MessageType.ADDRESS_ALREADY_EXISTS, createAddressDto.content()));
         }
+
+        if(createAddressDto.companyId() == null){
+            throw new DataNotFoundException(new ErrorMessage(MessageType.COMPANY_NOT_FOUND, createAddressDto.companyId().toString()));
+        }
+
+        if(createAddressDto.userId() == null){
+            throw new DataNotFoundException((new ErrorMessage(MessageType.USER_NOT_FOUND, createAddressDto.userId().toString())));
+        }
+        Address address = addressMapper.toEntity(createAddressDto);
         addressRepository.save(address);
 
         return addressMapper.toDto(address);

@@ -27,14 +27,14 @@ public class Invoice extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private InvoiceStatus invoiceStatus;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @ManyToOne
-    @JoinColumn(name = "company_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
-    @OneToMany(mappedBy = "invoice")
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
     private List<Payment> payments = new ArrayList<>();
 }

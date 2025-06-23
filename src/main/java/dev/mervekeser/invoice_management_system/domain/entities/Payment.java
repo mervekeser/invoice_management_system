@@ -21,8 +21,8 @@ public class Payment extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
-    @ManyToOne
-    @JoinColumn(name = "invoice_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "invoice_id", nullable = false)
     private Invoice invoice;
 
 }

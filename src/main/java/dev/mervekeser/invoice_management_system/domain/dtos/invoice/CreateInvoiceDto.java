@@ -11,9 +11,9 @@ public record CreateInvoiceDto(
         @NotNull(message = "{NotNull.common}")
         @Positive(message = "{Positive.common}")
         double amount,
-        @PastOrPresent
+        @PastOrPresent(message = "{PastOrPresent.common}")
         LocalDate issueDate,
-        @Future
+        @Future(message = "{Future.common}")
         LocalDate dueDate,
         @NotNull(message = "{NotNull.common}")
         @NotBlank(message = "{NotBlank.common}")

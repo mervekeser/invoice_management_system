@@ -12,9 +12,9 @@ public record UpdateInvoiceDto(
         @NotNull(message = "{NotNull.common}")
         @Positive(message = "{Positive.common}")
         double amount,
-        @PastOrPresent
+        @PastOrPresent(message = "{PastOrPresent.common}")
         LocalDate issueDate,
-        @Future
+        @Future(message = "{Future.common}")
         LocalDate dueDate,
         InvoiceStatus invoiceStatus,
         @NotNull(message = "{NotNull.common}")

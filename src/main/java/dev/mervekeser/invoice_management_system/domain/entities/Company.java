@@ -24,7 +24,7 @@ public class Company extends BaseEntity{
     @OneToMany(mappedBy = "company")
     private List<Invoice> invoices = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 

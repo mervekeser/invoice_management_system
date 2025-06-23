@@ -12,7 +12,7 @@ public record UserResponseDto(
         String phone,
         String email,
         String password,
-        List<UserRole> userRoles,
+        UserRole userRole,
         List<CompanyResponseDto> companyResponseDtos,
         List<AddressResponseDto> addressResponseDtos
 ) {

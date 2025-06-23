@@ -6,15 +6,23 @@ import jakarta.validation.constraints.*;
 import java.util.List;
 
 public record CreateUserDto(
-        @NotNull @NotBlank @Size(max = 25)
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
+        @Size(max = 25, message = "{Size.common}")
         String firstname,
-        @NotNull @NotBlank @Size(max = 25)
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
+        @Size(max = 25, message = "{Size.common}")
         String lastname,
-        @NotNull @NotBlank
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
         String phone,
-        @NotNull @NotBlank @Email
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
+        @Email
         String email,
-        @NotNull @NotBlank
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
         String password,
         List<UserRole> userRoles
 ) {

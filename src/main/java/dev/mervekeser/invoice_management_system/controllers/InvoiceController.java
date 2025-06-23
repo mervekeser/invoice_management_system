@@ -4,6 +4,7 @@ import dev.mervekeser.invoice_management_system.domain.dtos.invoice.CreateInvoic
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.InvoiceResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.UpdateInvoiceDto;
 import dev.mervekeser.invoice_management_system.services.impl.InvoiceServiceImpl;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class InvoiceController {
     private final InvoiceServiceImpl invoiceService;
 
     @PostMapping
-    public ResponseEntity<InvoiceResponseDto> createInvoice(CreateInvoiceDto createInvoiceDto){
+    public ResponseEntity<InvoiceResponseDto> createInvoice(@Valid @RequestBody CreateInvoiceDto createInvoiceDto){
         InvoiceResponseDto savedInvoice = invoiceService.createInvoice(createInvoiceDto);
 
         return new ResponseEntity<>(
@@ -28,7 +29,7 @@ public class InvoiceController {
     }
 
     @PutMapping(path = "{id}")
-    public ResponseEntity<InvoiceResponseDto> updateInvoice(UpdateInvoiceDto updateInvoiceDto, Long id){
+    public ResponseEntity<InvoiceResponseDto> updateInvoice(@Valid @RequestBody  UpdateInvoiceDto updateInvoiceDto, Long id){
         InvoiceResponseDto updatedInvoice = invoiceService.updateInvoice(updateInvoiceDto, id);
 
         return new ResponseEntity<>(
@@ -38,7 +39,7 @@ public class InvoiceController {
     }
 
     @GetMapping(path = "{id}")
-    public ResponseEntity<InvoiceResponseDto> getInvoice(Long id){
+    public ResponseEntity<InvoiceResponseDto> getInvoice(@PathVariable Long id){
         InvoiceResponseDto getInvoiceById = invoiceService.getInvoiceById(id);
 
         return ResponseEntity.ok(getInvoiceById);
@@ -52,7 +53,7 @@ public class InvoiceController {
     }
 
     @DeleteMapping(path = "{id}")
-    public ResponseEntity<InvoiceResponseDto> deleteInvoice(Long id){
+    public ResponseEntity<InvoiceResponseDto> deleteInvoice(@PathVariable Long id){
         InvoiceResponseDto deletedInvoice = invoiceService.deleteInvoiceById(id);
 
         return ResponseEntity.ok(deletedInvoice);

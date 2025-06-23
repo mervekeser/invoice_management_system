@@ -21,10 +21,10 @@ public class Address extends BaseEntity{
     private String district;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "company_id")
+    @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 }

@@ -6,8 +6,6 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
 public record UpdateAddressDto(
-        @Positive(message = "{Positive.common}")
-        Long id,
         @NotBlank(message = "{NotBlank.common}")
         @Size(max = 255, message = "{Size.common}")
         String content,

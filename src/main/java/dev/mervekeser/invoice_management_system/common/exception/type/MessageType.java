@@ -12,7 +12,8 @@ public enum MessageType {
     USER_NOT_FOUND(3004, "This user not found"),
     PRODUCT_NOT_FOUND(3005, "This product not found"),
     INVOICE_NOT_FOUND(3006, "This invoice not found"),
-    INVOICE_STATUS_NOT_AVAILABLE(3007, "This invoice cannot update")
+    INVOICE_STATUS_NOT_AVAILABLE(3007, "This invoice cannot update"),
+    PAYMENT_NOT_FOUND(3008, "This payment not found")
     ;
 
     private final Integer errorCode;

@@ -19,11 +19,21 @@ public class AddressController {
     private final AddressServiceImpl addressService;
 
     @PostMapping
-    public ResponseEntity<AddressResponseDto> createAddress(@Valid @RequestBody CreateAddressDto createAddressDto){
+    public ResponseEntity<AddressResponseDto> createAddress(@RequestBody @Valid CreateAddressDto createAddressDto){
         AddressResponseDto savedAddress = addressService.createAddress(createAddressDto);
 
         return new ResponseEntity<>(
                 savedAddress,
+                HttpStatus.CREATED
+        );
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<AddressResponseDto> updateAddress(@Valid @RequestBody UpdateAddressDto updateAddressDto, Long id){
+        AddressResponseDto updatedAddress = addressService.updateAddress(updateAddressDto, id);
+
+        return new ResponseEntity<>(
+                updatedAddress,
                 HttpStatus.CREATED
         );
     }
@@ -41,19 +51,9 @@ public class AddressController {
         return ResponseEntity.ok(addressResponseDtos);
     }
 
-    @PutMapping(path = "/{id}")
-    public ResponseEntity<AddressResponseDto> updateAddress(@Valid @RequestBody UpdateAddressDto updateAddressDto){
-        AddressResponseDto updatedAddress = addressService.updateAddress(updateAddressDto);
-
-        return new ResponseEntity<>(
-                updatedAddress,
-                HttpStatus.CREATED
-        );
-    }
-
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<AddressResponseDto> deleteAddress(@PathVariable Long id){
-        AddressResponseDto deletedAddress = addressService.deleteAddress(id);
+        AddressResponseDto deletedAddress = addressService.deleteAddressById(id);
 
         return ResponseEntity.ok(deletedAddress);
     }

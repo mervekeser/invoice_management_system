@@ -120,4 +120,14 @@ public class InvoiceServiceImpl implements InvoiceService {
         invoiceRepository.delete(invoice);
         return invoiceMapper.toDto(invoice);
     }
+
+    @Override
+    public Invoice getInvoice(Long id){
+        Invoice invoice = invoiceRepository.findById(id)
+                .orElseThrow(()-> new DataNotFoundException(
+                        new ErrorMessage(MessageType.INVOICE_NOT_FOUND, id.toString())
+                ));
+
+        return invoice;
+    }
 }

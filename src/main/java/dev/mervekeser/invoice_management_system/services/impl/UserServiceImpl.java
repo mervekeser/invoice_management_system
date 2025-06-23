@@ -71,4 +71,12 @@ public class UserServiceImpl implements UserService {
         UserResponseDto deletedUser = userMapper.toDto(user);
         return deletedUser;
     }
+
+    @Override
+    public User getUser(Long id){
+        User user = userRepository.findById(id)
+                .orElseThrow(()-> new DataNotFoundException(new ErrorMessage(MessageType.USER_NOT_FOUND, id.toString())));
+
+        return user;
+    }
 }

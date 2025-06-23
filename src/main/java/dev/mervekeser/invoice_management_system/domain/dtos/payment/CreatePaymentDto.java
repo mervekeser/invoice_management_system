@@ -8,11 +8,14 @@ import jakarta.validation.constraints.Positive;
 import java.time.LocalDate;
 
 public record CreatePaymentDto(
-        @NotNull @PastOrPresent
+        @NotNull(message = "{NotNull.common}")
+        @PastOrPresent
         LocalDate date,
-        @NotNull @NotBlank
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
         String paymentMethod,
-        @NotNull @Positive
+        @NotNull(message = "{NotNull.common}")
+        @Positive(message = "{Positive.common}")
         Long invoiceId
 ) {
 }

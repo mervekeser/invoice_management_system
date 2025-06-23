@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public record CreatePaymentDto(
         @NotNull(message = "{NotNull.common}")
-        @PastOrPresent
+        @PastOrPresent(message = "{PastOrPresent.common}")
         LocalDate date,
         @NotNull(message = "{NotNull.common}")
         @NotBlank(message = "{NotBlank.common}")

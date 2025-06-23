@@ -22,7 +22,7 @@ public record UpdateUserDto(
         String phone,
         @NotNull(message = "{NotNull.common}")
         @NotBlank(message = "{NotBlank.common}")
-        @Email
+        @Email(message = "{Email.common}")
         String email,
         @NotNull(message = "{NotNull.common}")
         @NotBlank(message = "{NotBlank.common}")

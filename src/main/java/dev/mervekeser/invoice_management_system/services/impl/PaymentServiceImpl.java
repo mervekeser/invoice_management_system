@@ -7,6 +7,7 @@ import dev.mervekeser.invoice_management_system.domain.dtos.payment.CreatePaymen
 import dev.mervekeser.invoice_management_system.domain.dtos.payment.PaymentResponseDto;
 import dev.mervekeser.invoice_management_system.domain.entities.Invoice;
 import dev.mervekeser.invoice_management_system.domain.entities.Payment;
+import dev.mervekeser.invoice_management_system.domain.entities.enums.InvoiceStatus;
 import dev.mervekeser.invoice_management_system.mappers.PaymentMapper;
 import dev.mervekeser.invoice_management_system.repositories.PaymentRepository;
 import dev.mervekeser.invoice_management_system.services.PaymentService;
@@ -33,7 +34,7 @@ public class PaymentServiceImpl implements PaymentService {
                     new ErrorMessage(MessageType.INVOICE_NOT_FOUND, createPaymentDto.invoiceId().toString())
             );
         }
-
+        invoice.setInvoiceStatus(InvoiceStatus.PAID);
         payment.setInvoice(invoice);
         paymentRepository.save(payment);
 

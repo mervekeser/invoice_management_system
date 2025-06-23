@@ -3,15 +3,22 @@ package dev.mervekeser.invoice_management_system.domain.dtos.company;
 import jakarta.validation.constraints.*;
 
 public record CreateCompanyDto(
-        @NotNull @NotBlank @Size(max = 25)
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
+        @Size(max = 25, message = "{Size.common}")
         String name,
-        @NotNull @NotBlank
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
         String phone,
-        @NotNull @NotBlank @Email
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
+        @Email
         String email,
-        @NotNull @NotBlank
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
         String taxNumber,
-        @NotNull @Positive
+        @NotNull(message = "{NotNull.common}")
+        @Positive(message = "{Positive.common}")
         Long userId
 ) {
 }

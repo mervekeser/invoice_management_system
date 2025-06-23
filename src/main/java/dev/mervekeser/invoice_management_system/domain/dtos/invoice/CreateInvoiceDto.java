@@ -5,19 +5,24 @@ import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
 public record CreateInvoiceDto(
-        @NotNull @PositiveOrZero
+        @NotNull(message = "{NotNull.common}")
+        @Positive(message = "{Positive.common}")
         double taxAmount,
-        @NotNull @PositiveOrZero
+        @NotNull(message = "{NotNull.common}")
+        @Positive(message = "{Positive.common}")
         double amount,
         @PastOrPresent
         LocalDate issueDate,
         @Future
         LocalDate dueDate,
-        @NotNull @NotBlank
+        @NotNull(message = "{NotNull.common}")
+        @NotBlank(message = "{NotBlank.common}")
         String invoiceStatus,
-        @NotNull @Positive
+        @NotNull(message = "{NotNull.common}")
+        @Positive(message = "{Positive.common}")
         Long productId,
-        @NotNull @Positive
+        @NotNull(message = "{NotNull.common}")
+        @Positive(message = "{Positive.common}")
         Long companyId
 ) {
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface InvoiceService {
     InvoiceResponseDto createInvoice(CreateInvoiceDto createInvoiceDto);
-    InvoiceResponseDto updateInvoice(UpdateInvoiceDto updateInvoiceDto);
+    InvoiceResponseDto updateInvoice(UpdateInvoiceDto updateInvoiceDto, Long id);
     InvoiceResponseDto getInvoiceById(Long id);
     List<InvoiceResponseDto> getAllInvoices();
     InvoiceResponseDto deleteInvoiceById(Long id);

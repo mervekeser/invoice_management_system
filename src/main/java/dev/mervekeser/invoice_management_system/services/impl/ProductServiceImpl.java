@@ -70,4 +70,14 @@ public class ProductServiceImpl implements ProductService {
 
         return productMapper.toDto(product);
     }
+
+    @Override
+    public Product getProduct(Long id){
+        Product product = productRepository.findById(id)
+                .orElseThrow(()-> new DataNotFoundException(
+                        new ErrorMessage(MessageType.PRODUCT_NOT_FOUND, id.toString())
+                ));
+
+        return product;
+    }
 }

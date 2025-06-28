@@ -12,6 +12,8 @@ import dev.mervekeser.invoice_management_system.domain.entities.User;
 import dev.mervekeser.invoice_management_system.mappers.AddressMapper;
 import dev.mervekeser.invoice_management_system.repositories.AddressRepository;
 import dev.mervekeser.invoice_management_system.services.AddressService;
+import dev.mervekeser.invoice_management_system.services.CompanyService;
+import dev.mervekeser.invoice_management_system.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +24,8 @@ import java.util.List;
 public class AddressServiceImpl implements AddressService {
     private final AddressRepository addressRepository;
     private final AddressMapper addressMapper;
-    private final CompanyServiceImpl companyService;
-    private final UserServiceImpl userService;
+    private final CompanyService companyService;
+    private final UserService userService;
 
     @Override
     public AddressResponseDto createAddress(CreateAddressDto createAddressDto) {

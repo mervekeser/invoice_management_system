@@ -3,7 +3,7 @@ package dev.mervekeser.invoice_management_system.controllers;
 import dev.mervekeser.invoice_management_system.domain.dtos.company.CompanyResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.company.CreateCompanyDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.company.UpdateCompanyDto;
-import dev.mervekeser.invoice_management_system.services.impl.CompanyServiceImpl;
+import dev.mervekeser.invoice_management_system.services.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/companies")
 public class CompanyController {
-    private final CompanyServiceImpl companyService;
+    private final CompanyService companyService;
 
     @PostMapping
     public ResponseEntity<CompanyResponseDto> createCompany(CreateCompanyDto createCompanyDto){

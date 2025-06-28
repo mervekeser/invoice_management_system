@@ -9,9 +9,9 @@ import dev.mervekeser.invoice_management_system.domain.dtos.company.UpdateCompan
 import dev.mervekeser.invoice_management_system.domain.entities.Company;
 import dev.mervekeser.invoice_management_system.domain.entities.User;
 import dev.mervekeser.invoice_management_system.mappers.CompanyMapper;
-import dev.mervekeser.invoice_management_system.mappers.UserMapper;
 import dev.mervekeser.invoice_management_system.repositories.CompanyRepository;
 import dev.mervekeser.invoice_management_system.services.CompanyService;
+import dev.mervekeser.invoice_management_system.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ import java.util.List;
 public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepository companyRepository;
     private final CompanyMapper companyMapper;
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @Override
     public CompanyResponseDto createCompany(CreateCompanyDto createCompanyDto) {

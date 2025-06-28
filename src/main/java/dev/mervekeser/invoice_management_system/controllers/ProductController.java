@@ -3,7 +3,7 @@ package dev.mervekeser.invoice_management_system.controllers;
 import dev.mervekeser.invoice_management_system.domain.dtos.product.CreateProductDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.product.ProductResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.product.UpdateProductDto;
-import dev.mervekeser.invoice_management_system.services.impl.ProductServiceImpl;
+import dev.mervekeser.invoice_management_system.services.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/products")
 public class ProductController {
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
 
 
     @PostMapping

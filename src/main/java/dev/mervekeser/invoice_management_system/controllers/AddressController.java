@@ -3,7 +3,7 @@ package dev.mervekeser.invoice_management_system.controllers;
 import dev.mervekeser.invoice_management_system.domain.dtos.address.AddressResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.address.CreateAddressDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.address.UpdateAddressDto;
-import dev.mervekeser.invoice_management_system.services.impl.AddressServiceImpl;
+import dev.mervekeser.invoice_management_system.services.AddressService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/addresses")
 public class AddressController {
-    private final AddressServiceImpl addressService;
+    private final AddressService addressService;
 
     @PostMapping
     public ResponseEntity<AddressResponseDto> createAddress(@RequestBody @Valid CreateAddressDto createAddressDto){

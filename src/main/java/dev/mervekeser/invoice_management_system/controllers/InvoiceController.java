@@ -3,7 +3,7 @@ package dev.mervekeser.invoice_management_system.controllers;
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.CreateInvoiceDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.InvoiceResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.UpdateInvoiceDto;
-import dev.mervekeser.invoice_management_system.services.impl.InvoiceServiceImpl;
+import dev.mervekeser.invoice_management_system.services.InvoiceService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/invoices")
 public class InvoiceController {
-    private final InvoiceServiceImpl invoiceService;
+    private final InvoiceService invoiceService;
 
     @PostMapping
     public ResponseEntity<InvoiceResponseDto> createInvoice(@Valid @RequestBody CreateInvoiceDto createInvoiceDto){

@@ -13,7 +13,9 @@ import dev.mervekeser.invoice_management_system.domain.entities.Product;
 import dev.mervekeser.invoice_management_system.domain.entities.enums.InvoiceStatus;
 import dev.mervekeser.invoice_management_system.mappers.InvoiceMapper;
 import dev.mervekeser.invoice_management_system.repositories.InvoiceRepository;
+import dev.mervekeser.invoice_management_system.services.CompanyService;
 import dev.mervekeser.invoice_management_system.services.InvoiceService;
+import dev.mervekeser.invoice_management_system.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +26,8 @@ import java.util.List;
 public class InvoiceServiceImpl implements InvoiceService {
     private final InvoiceRepository invoiceRepository;
     private final InvoiceMapper invoiceMapper;
-    private final ProductServiceImpl productService;
-    private final CompanyServiceImpl companyService;
+    private final ProductService productService;
+    private final CompanyService companyService;
 
     @Override
     public InvoiceResponseDto createInvoice(CreateInvoiceDto createInvoiceDto) {

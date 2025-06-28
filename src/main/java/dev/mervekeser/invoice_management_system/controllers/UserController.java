@@ -3,7 +3,7 @@ package dev.mervekeser.invoice_management_system.controllers;
 import dev.mervekeser.invoice_management_system.domain.dtos.user.CreateUserDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.user.UpdateUserDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.user.UserResponseDto;
-import dev.mervekeser.invoice_management_system.services.impl.UserServiceImpl;
+import dev.mervekeser.invoice_management_system.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/users")
 public class UserController {
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @PostMapping
     public ResponseEntity<UserResponseDto> createUser(@Valid @RequestBody CreateUserDto createUserDto){

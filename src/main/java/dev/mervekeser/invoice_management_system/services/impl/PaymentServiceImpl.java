@@ -10,6 +10,7 @@ import dev.mervekeser.invoice_management_system.domain.entities.Payment;
 import dev.mervekeser.invoice_management_system.domain.entities.enums.InvoiceStatus;
 import dev.mervekeser.invoice_management_system.mappers.PaymentMapper;
 import dev.mervekeser.invoice_management_system.repositories.PaymentRepository;
+import dev.mervekeser.invoice_management_system.services.InvoiceService;
 import dev.mervekeser.invoice_management_system.services.PaymentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,7 @@ import java.util.List;
 public class PaymentServiceImpl implements PaymentService {
     private final PaymentRepository paymentRepository;
     private final PaymentMapper paymentMapper;
-    private final InvoiceServiceImpl invoiceService;
+    private final InvoiceService invoiceService;
 
     @Override
     public PaymentResponseDto createPayment(CreatePaymentDto createPaymentDto) {

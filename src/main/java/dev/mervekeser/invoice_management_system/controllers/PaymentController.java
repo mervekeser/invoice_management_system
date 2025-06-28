@@ -2,7 +2,7 @@ package dev.mervekeser.invoice_management_system.controllers;
 
 import dev.mervekeser.invoice_management_system.domain.dtos.payment.CreatePaymentDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.payment.PaymentResponseDto;
-import dev.mervekeser.invoice_management_system.services.impl.PaymentServiceImpl;
+import dev.mervekeser.invoice_management_system.services.PaymentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/v1/payments")
 public class PaymentController {
-    private final PaymentServiceImpl paymentService;
+    private final PaymentService paymentService;
 
     @PostMapping
     public ResponseEntity<PaymentResponseDto> createPayment(@Valid @RequestBody CreatePaymentDto createPaymentDto){

@@ -16,7 +16,10 @@ import dev.mervekeser.invoice_management_system.repositories.InvoiceRepository;
 import dev.mervekeser.invoice_management_system.services.CompanyService;
 import dev.mervekeser.invoice_management_system.services.InvoiceService;
 import dev.mervekeser.invoice_management_system.services.ProductService;
+import dev.mervekeser.invoice_management_system.utils.pagination.PageableEntity;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -111,6 +114,14 @@ public class InvoiceServiceImpl implements InvoiceService {
                 .toList();
 
         return getAllInvoice;
+    }
+
+    @Override
+    public Page<InvoiceResponseDto> getAllInvoiceWithPage(Pageable pageable){
+        Page<InvoiceResponseDto> invoice = invoiceRepository.findAll(pageable)
+                .map(invoiceMapper::toDto);
+
+        return invoice;
     }
 
     @Override

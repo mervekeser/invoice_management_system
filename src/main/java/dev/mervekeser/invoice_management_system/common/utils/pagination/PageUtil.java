@@ -1,4 +1,4 @@
-package dev.mervekeser.invoice_management_system.utils.pagination;
+package dev.mervekeser.invoice_management_system.common.utils.pagination;
 
 import lombok.experimental.UtilityClass;
 import org.springframework.data.domain.Page;

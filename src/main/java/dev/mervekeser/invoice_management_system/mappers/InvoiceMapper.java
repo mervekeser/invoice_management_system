@@ -4,11 +4,9 @@ import dev.mervekeser.invoice_management_system.domain.dtos.invoice.CreateInvoic
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.InvoiceResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.UpdateInvoiceDto;
 import dev.mervekeser.invoice_management_system.domain.entities.Invoice;
-import dev.mervekeser.invoice_management_system.utils.pagination.PageableEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
-import org.springframework.data.domain.Page;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface InvoiceMapper {

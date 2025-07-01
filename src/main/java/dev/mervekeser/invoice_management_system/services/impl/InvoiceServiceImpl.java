@@ -16,7 +16,6 @@ import dev.mervekeser.invoice_management_system.repositories.InvoiceRepository;
 import dev.mervekeser.invoice_management_system.services.CompanyService;
 import dev.mervekeser.invoice_management_system.services.InvoiceService;
 import dev.mervekeser.invoice_management_system.services.ProductService;
-import dev.mervekeser.invoice_management_system.utils.pagination.PageableEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -4,7 +4,6 @@ import dev.mervekeser.invoice_management_system.domain.dtos.invoice.CreateInvoic
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.InvoiceResponseDto;
 import dev.mervekeser.invoice_management_system.domain.dtos.invoice.UpdateInvoiceDto;
 import dev.mervekeser.invoice_management_system.domain.entities.Invoice;
-import dev.mervekeser.invoice_management_system.utils.pagination.PageableEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
